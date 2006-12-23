@@ -1,0 +1,8 @@
+====== TraductionPclNumbersCharactersAndStrings ======
+Created samedi 16/12/2006
+
+====== Les nombres, caractères et chaînes de caractères ======
+
+Bien que les fonctions, les variables, les macros et 25 opérateurs spéciaux fournissent les blocs de base du langage lui-même, les blocs de votre programme seront les structures de données que vous utilisez. Comme le faisait remarquer Fred Brooks dans //Le mythe du mois-homme//, « La représentation //est// l'essence de la programmation. »
+
+Common Lisp fournit un support de base pour la plupart des types de données que l'on trouve typiquement dans les langages modernes : les nombres (entiers, à virgule flottante et complexes), les caractères, les chaînes de caractères, les tableaux (dont les tableaux à plusieurs dimensions), les listes, les tables de hashage, les flux d'entrée et sortie et une abstraction pour représenter portablement des noms de fichiers. Les fonctions sont également un type de donnée de première classe en Lisp -- elles peuvent être stockées dans des variables, passées en arguments, renvoyées comme valeur de retour et créées durant l'exécution.
