@@ -56,6 +56,36 @@ Vous pouvez aussi écrire des nombre à virgule flottante de bien des façons. C
 
 Le format de base pour les nombres à virgule flottante est un signe optionnel suivi par une séquence non-vide de chiffres décimaux comprenant éventuellement un point décimal. Cette séquence peut être suivie par un marqueur d'exposant de « notation scientifique informatique ». La marqueur d'exposant consiste en une seule lettre suivi par un signe optionnel est une séquence de chiffres, interprétés comme la puissance de dix par laquelle le nombre avant le marqueur d'exposant devrait être multiplié. La lettre a un double rôle : elle marque le début de l'exposant et indique quelle représentation à virgule flottante doit être utilisée pour le nombre. Les marqueurs d'exposant s, f, d et l (et leur équivalents en majuscule) indiquent des flottants short, single, double et long. La lettre e indique que la représentation par défaut (single-float, au départ) devrait être utilisée.
 
+Les nombres sans marqueur d'exposant sont lus dans la représentation par défaut et doivent contenir un point décimal suivi par au moins un chiffre pour les distinguer des entiers. Les chiffres dans un nombre à virgule flottante sont toujours traités comme des chiffres en base 10 -- les syntaxes #B, #X, #O et #R ne fonctionnent qu'avec des rationels. Voici quelques exemples de nombres à virgule flottante avec leur représentation canonique :
+
+1.0      ==> 1.0
+1e0      ==> 1.0
+1d0      ==> 1.0d0
+123.0    ==> 123.0
+123e0    ==> 123.0
+0.123    ==> 0.123
+.123     ==> 0.123
+123e-3   ==> 0.123
+123E-3   ==> 0.123
+0.123e20 ==> 1.23e+19
+123d23   ==> 1.23d+25
+
+Enfin, les nombres complexes sont écrits avec leur propre syntaxe, en l'occurrence #C ou #c suivi par une liste de deux nombres réels représentants la partie réelle et imaginaire du nombre complexe. Il y a en fait cinq genres de nombres complexes parce que les parties réelle et imaginaire doivent être chacune rationelle ou chacune du même type de nombre à virgule flottante.
+
+Mais vous pouvez les écrire comme vous le voulez -- si un complexe est écrit avec une partie rationelle  et l'autre à virgule flottante, le rationel est converti en flottant de la représentation qui convient. Similairement, si les parties réelle et imaginaire sont toutes deux des flottants de représentations différentes, celui dans la plus petite représentation sera[[ ]]//augmenté//.
+
+Néanmoins, aucun nombre complexe n'a de composante réelle rationelle et une partie imaginaire nulle -- puisque ces valeurs sont, mathématiquement parlant, des rationels, elles sont représentées par la valeur rationelle appropriée. Le même argument mathématique pourrait être employé pour les nombres complexes avec des composantes à virgule flottante, mais, pour ces types complexes, un nombre avec une partie umaginaire nulle est toujours un objet différent du nombre à virgule flottante représentant la composante réelle. Voici quelques exemples de nombres écrits avec la syntaxe des nombres complexes :
+
+#c(2      1)    ==> #c(2 1)
+#c(2/3  3/4)    ==> #c(2/3 3/4)
+#c(2    1.0)    ==> #c(2.0 1.0)
+#c(2.0  1.0d0)  ==> #c(2.0d0 1.0d0)
+#c(1/2  1.0)    ==> #c(0.5 1.0)
+#c(3      0)    ==> 3
+#c(3.0  0.0)    ==> #c(3.0 0.0)
+#c(1/2    0)    ==> 1/2
+#c(-6/3   0)    ==> -2
+
 ===== Chaînes de caractères =====
 
 Ainsi qu'il en a été fait mention plus haut, en Common Lisp, les chaînes de caractère sont en fait un type de données composite. En l'occurrence, il s'agit de tableaux de caractères unidimensionnels. Par conséquent, j'évoquerai la plupart des choses qu'on peut réaliser avec des chaînes de caractères dans le prochain chapitre, lorsque je discuterai des nombreuses fonctions permettant de manipuler les séquences, parmi lequelles les chaînes de caractères ne constituent qu'un exemple. Mais les chaînes de caractères ont aussi leur propre syntaxe litérale, ainsi qu'une bibliothèque de fonctions permettant d'effectuer des opérations qui leurs sont spécifiques. Je discuterai de ces aspects particuliers des chaînes de caractères dans le présent chapitre et réserverai les autres au chapitre 11.
