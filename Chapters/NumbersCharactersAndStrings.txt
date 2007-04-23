@@ -56,13 +56,13 @@ Vous pouvez aussi écrire des nombre à virgule flottante de bien des façons. C
 
 Le format de base pour les nombres à virgule flottante est un signe optionnel suivi par une séquence non-vide de chiffres décimaux comprenant éventuellement un point décimal. Cette séquence peut être suivie par un marqueur d'exposant de « notation scientifique informatique ». La marqueur d'exposant consiste en une seule lettre suivi par un signe optionnel est une séquence de chiffres, interprétés comme la puissance de dix par laquelle le nombre avant le marqueur d'exposant devrait être multiplié. La lettre a un double rôle : elle marque le début de l'exposant et indique quelle représentation à virgule flottante doit être utilisée pour le nombre. Les marqueurs d'exposant s, f, d et l (et leur équivalents en majuscule) indiquent des flottants short, single, double et long. La lettre e indique que la représentation par défaut (single-float, au départ) devrait être utilisée.
 
-===== Chaînes de caractères. =====
+===== Chaînes de caractères =====
 
-Ainsi qu'il en a été fait mention plus haut, avec *(en)* Common Lisp, les chaînes de caractère sont un type de données composite. Comme leur nom l'indique, il s'agit de tableaux de caractères unidimensionnels. Par conséquent, j'évoquerai la plupart des choses qu'on peut réaliser avec des chaînes de caractères dans le prochain chapitre, lorsque je discuterai des nombreuses fonctions permettant de manipuler les séquences *(??)*, parmi lequelles les chaînes de caractères ne constituent qu'un exemple. Néanmoins, il est vrai que les chaînes de caractères ont leur propre syntaxe, ainsi qu'une bibliothèque de fonctions permettant d'effectuer des opérations qui leurs sont spécifiques. Je discuterai de ces aspects particuliers des chaînes de caractères dans le présent chapitre et réserverai les autres au chapitre 11.
+Ainsi qu'il en a été fait mention plus haut, en Common Lisp, les chaînes de caractère sont en fait un type de données composite. En l'occurrence, il s'agit de tableaux de caractères unidimensionnels. Par conséquent, j'évoquerai la plupart des choses qu'on peut réaliser avec des chaînes de caractères dans le prochain chapitre, lorsque je discuterai des nombreuses fonctions permettant de manipuler les séquences, parmi lequelles les chaînes de caractères ne constituent qu'un exemple. Mais les chaînes de caractères ont aussi leur propre syntaxe litérale, ainsi qu'une bibliothèque de fonctions permettant d'effectuer des opérations qui leurs sont spécifiques. Je discuterai de ces aspects particuliers des chaînes de caractères dans le présent chapitre et réserverai les autres au chapitre 11.
 
-Comme vous avez pu le constater, les chaînes littérales sont écrites entre guillemets. Vous pouvez inclure n'importe quel caractère autorisé *(supporté)* par le jeu de caractères dans une chaîne littérale, mis à part le guillemet (") et la barre oblique inversée ou slash inversé (\). Et vous pouvez également inclure ces deux-là si vous les échappez à l'aide du slash inversé. En fait, le slash inversé échappe n'importe quel caractère, bien que cela soit ne soit pas nécessaire pour d'autres caractères que le guillemet et le slash inversé lui-même. Le tableau 10-2 montre comment diverses chaînes littérales seront lues par le lecteur Lisp.
+Comme vous avez pu le constater, les chaînes littérales sont écrites entre guillemets doubles. Vous pouvez inclure n'importe quel caractère compris dans le jeu de caractères dans une chaîne littérale, mis à part le guillemet double (") et la barre oblique inversée ou backslash (\). Et vous pouvez également inclure ces deux-là si vous les échappez à l'aide du backslash. En fait, le backslash échappe n'importe quel caractère, bien que cela soit ne soit pas nécessaire pour d'autres caractères que le guillemet et le slash inversé lui-même. Le tableau 10-2 montre comment diverses chaînes littérales seront lues par le lecteur Lisp.
 
-Notez qu'en général, le REPL imprimera à l'écran les chaînes de caractères sous une forme littérale, *(lisible par le lecteur Lisp)*, y faisant figurer les guillemets ainsi que tout slash inversé nécessaire. Aussi, si vous souhaitez visualiser le contenu d'une chaîne de caractères, vous devrez utiliser une fonction comme FORMAT, permettant d'afficher à l'écran un résultat lisible par l'utilisateur. Par exemple, voici ce que vous verrez si vous entrez dans le REPL une chaîne contenant un guillemet :
+Notez qu'en général, la REPL imprimera à l'écran les chaînes de caractères sous une forme lisible, en l'entourant de guillemets doubles et ajoutant tout backslash nécessaire. Aussi, si vous souhaitez visualiser le contenu d'une chaîne de caractères, vous devrez utiliser une fonction comme FORMAT, permettant d'afficher à l'écran un résultat lisible par l'utilisateur. Par exemple, voici ce que vous verrez si vous entrez dans le REPL une chaîne contenant un guillemet :
 
 CL-USER> "foo\"bar"
 "foo\"bar"
@@ -72,3 +72,33 @@ FORMAT, en revanche, retournera le contenu véritable de la chaîne de caractèr
 CL-USER> (format t "foo\"bar")
 foo"bar
 NIL
+
+===== Comparaison de chaînes de caractères. =====
+
+Vous pouvez comparer entre elles des chaînes de caractères en utilisant un ensemble de fonctions qui suivent les mêmes conventions d'appelation que celles qui permettent de comparer les caractères eux-mêmes, à ceci près qu'ici STRING est utilisé comme préfixe plutôt que CHAR (voir le tableau 10-3).
+
+Cependant, contrairement aux comparateurs de caractères et de nombres, les comparateurs de chaînes peuvent seulement comparer deux chaînes à la fois. Ceci car ces fonctions peuvent prendre en argument des arguments mot-clefs*(ça sonne mal... je pensais à "peuvent prendre d'autres arguments", tout simplement)*, vous permettant de restreindre la comparaison à des sous-chaînes de l'une ou des deux chaînes considérées.
+
+Les arguments :start1, :end1, :start2 et :end2 spécificient les indices de début (inclus) et de fin (exclus) des sous-chaînes dans la première et la seconde chaînes passées en argument.
+
+Ainsi, l'expression :
+
+(string= "foobarbaz" "quuxbarfoo" :start1 3 :end1 6 :start2 4 :end2 7)
+
+compare la sous-chaîne « bar » dans les deux arguments et renvoie « vrai ». :end1 et :end2 peuvent prendre NIL pour argument (ou l'argument mot-clef peut être tout simplement omis) pour indiquer que la sous-chaîne correspondante s'étend jusqu'à la fin de la chaîne.
+
+Les comparateurs qui renvoient « vrai » lorsque leurs arguments diffèrent, c'est-à-dire, tous à l'exception de STRING= et STRING-EQUAL, renvoient l'indice de la première chaîne pour lequel la différence a été détectée.
+
+(string/= "lisp" "lissome") ==> 3
+
+Si la première chaîne est un préfixe de la seconde, la valeur renvoyée sera la longueur de la première chaîne, c'est-à-dire, le dernier indice valide dans cette chaîne plus un.
+
+(string< "lisp" "lisper") ==> 4
+
+Lorsqu'on compare ensemble des sous-chaînes, la valeur renvoyée n'en demeure pas moins un indice pour la chaîne dans son ensemble. Par exemple, l'expression suivante compare les sous-chaînes « bar » et « baz », mais renvoie 5, car il s'agit-là de l'indice du r dans la première chaîne :
+
+(string< "foobar" "abaz" :start1 3 :start2 1) ==> 5 ; N.B. not 2
+
+D'autres fonctions de chaînes permettent de convertir la casse des chaînes et de supprimer des caractères à l'une ou aux deux extrêmités d'une chaîne. Et, comme je l'ai mentionné plus haut, dans la mesure où les chaînes de caractères sont un type de séquence, toutes les fonctions de séquence dont je discuterai dans le prochain chapitre peuvent être utilisées avec des chaînes. Par exemple, vous pouvez déterminer la longueur d'une chaîne avec la fonction LENGTH. Vous pouvez également récupérer des caractères individuels à partir d'une chaîne à l'aide de la fonction permettant d'accéder à un élément de séquence, ELT, ou de la fonction permettant d'accéder à un élément de tableau, AREF. Vous pouvez encore utiliser un accesseur spécifique aux caractères, CHAR.
+
+Mais ces fonctions, et les autres avec elles, sont le sujet du prochain chapitre, auquel je vous propose de nous rendre sans plus tarder.
