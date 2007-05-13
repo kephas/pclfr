@@ -120,7 +120,7 @@ Ainsi qu'il en a été fait mention plus haut, en Common Lisp, les chaînes de c
 
 Comme vous avez pu le constater, les chaînes littérales sont écrites entre guillemets doubles. Vous pouvez inclure n'importe quel caractère compris dans le jeu de caractères dans une chaîne littérale, mis à part le guillemet double (") et la barre oblique inversée ou backslash (\). Et vous pouvez également inclure ces deux-là si vous les échappez à l'aide du backslash. En fait, le backslash échappe n'importe quel caractère, bien que cela soit ne soit pas nécessaire pour d'autres caractères que le guillemet et le slash inversé lui-même. Le tableau 10-2 montre comment diverses chaînes littérales seront lues par le lecteur Lisp.
 
-Notez qu'en général, la REPL imprimera à l'écran les chaînes de caractères sous une forme lisible, en l'entourant de guillemets doubles et ajoutant tout backslash nécessaire. Aussi, si vous souhaitez visualiser le contenu d'une chaîne de caractères, vous devrez utiliser une fonction comme FORMAT, permettant d'afficher à l'écran un résultat lisible par l'utilisateur. Par exemple, voici ce que vous verrez si vous entrez dans le REPL une chaîne contenant un guillemet :
+Notez qu'en général, la REPL imprimera à l'écran les chaînes de caractères sous une forme lisible, en l'entourant de guillemets doubles et en ajoutant tout backslash nécessaire. Aussi, si vous souhaitez visualiser le contenu d'une chaîne de caractères, vous devrez utiliser une fonction comme FORMAT, permettant d'afficher à l'écran un résultat lisible par l'utilisateur. Par exemple, voici ce que vous verrez si vous entrez dans le REPL une chaîne contenant un guillemet :
 
 CL-USER> "foo\"bar"
 "foo\"bar"
