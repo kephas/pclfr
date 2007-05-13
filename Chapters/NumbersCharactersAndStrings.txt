@@ -86,6 +86,34 @@ Néanmoins, aucun nombre complexe n'a de composante réelle rationelle et une pa
 #c(1/2    0)    ==> 1/2
 #c(-6/3   0)    ==> -2
 
+===== Mathématiques de base =====
+
+Les opérations arithmétiques de base -- addition, soustraction, multiplication et division -- sont supportées, pour tous les différents genre de nombres Lisp, par les fonctions +, -, * et /. Appeler n'importe laquelle de ces fonctions avec plus de deux arguments est équivalent à appeler la même fonction sur les deux premiers arguments et puis de l'appeler à nouveau sur la valeur de résultat et le reste des arguments. Par exemple, (+ 1 2 3) est équivalent à (+ (+ 1 2) 3). Avec un seul argument, + et * renvoient la valeur, - renvoit son opposé et / son inverse.
+
+(+ 1 2)              ==> 3
+(+ 1 2 3)            ==> 6
+(+ 10.0 3.0)         ==> 13.0
+(+ #c(1 2) #c(3 4))  ==> #c(4 6)
+(- 5 4)              ==> 1
+(- 2)                ==> -2
+(- 10 3 5)           ==> 2
+(* 2 3)              ==> 6
+(* 2 3 4)            ==> 24
+(/ 10 5)             ==> 2
+(/ 10 5 2)           ==> 1
+(/ 2 3)              ==> 2/3
+(/ 4)                ==> 1/4
+
+Si tous les arguments sont du même type de nombre (rationel, à virgule flottante ou complexe), le résultat sera du même type sauf sans le cas où le résultat d'une opération sur des nombres complexes avec des composantes rationelles donne un nombre avec une partie imaginaire nulle, auquel cas le résultat sera un rationel. Néanmoins, les nombres à virgule flottante et complexes sont //contagieux// -- si tous les arguments sont réels mais un ou plus sont des nombres à virgule flottante, les autres arguments sont convertis en la valeur à virgule flottante la plus proche dans la « plus grande » représentation à virgule flottante parmi les arguments effectivement à virgule flottante. Les nombres à virgule flottante dans une réprésentation « plus petite » sont également converti dans la représentation plus grande. Similairement, si n'importe lequel des arguments est complexe, tout argument réel est converti en son équivalent complexe.
+
+(+ 1 2.0)             ==> 3.0
+(/ 2 3.0)             ==> 0.6666667
+(+ #c(1 2) 3)         ==> #c(4 2)
+(+ #c(1 2) 3/2)       ==> #c(5/2 2)
+(+ #c(1 1) #c(2 -1))  ==> 3
+
+Parce que / ne tronque pas, Common Lisp fournit quatre façons de tronquer et d'arrondir pour convertir un nomre réel (rationel ou à virgule flottante) en un entier : FLOOR tronque vers l'infini négatif et renvoit le plus grand entier entier inférieur ou égal à l'argument. CEILING tronque vers l'infini positif et renvoit le plus petit entier supérieur ou égal à l'argument. TRUNCATE tronque vers zéro, ce qui le rend équivalent à FLOOR pour les arguments positifs et à CEILING pour les arguments négatifs. Et ROUND arrondi à l'entier le plus proche. Si l'argument est exactement à mi-chemin entre deux entiers, il arrondit à l'entier pair le plus proche.
+
 ===== Chaînes de caractères =====
 
 Ainsi qu'il en a été fait mention plus haut, en Common Lisp, les chaînes de caractère sont en fait un type de données composite. En l'occurrence, il s'agit de tableaux de caractères unidimensionnels. Par conséquent, j'évoquerai la plupart des choses qu'on peut réaliser avec des chaînes de caractères dans le prochain chapitre, lorsque je discuterai des nombreuses fonctions permettant de manipuler les séquences, parmi lequelles les chaînes de caractères ne constituent qu'un exemple. Mais les chaînes de caractères ont aussi leur propre syntaxe litérale, ainsi qu'une bibliothèque de fonctions permettant d'effectuer des opérations qui leurs sont spécifiques. Je discuterai de ces aspects particuliers des chaînes de caractères dans le présent chapitre et réserverai les autres au chapitre 11.
