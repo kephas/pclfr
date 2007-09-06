@@ -1,7 +1,6 @@
-====== TraductionPclNumbersCharactersAndStrings ======
-Created samedi 16/12/2006
+====== Numbers, Characters And Strings ======
 
-====== Les nombres, caractères et chaînes de caractères ======
+===== Les nombres, caractères et chaînes de caractères =====
 
 Bien que les fonctions, les variables, les macros et les 25 opérateurs spéciaux constituent les briques élémentaires du langage lui-même, les briques à la base de vos programmes seront les structures de données que vous utilisez. Comme le faisait remarquer Fred Brooks dans //Le mythe du mois-homme//, « La représentation //est// l'essence de la programmation. »
 

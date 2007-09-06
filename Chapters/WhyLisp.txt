@@ -1,7 +1,4 @@
-====== TraductionPcl ======
-Created samedi 16/12/2006
-
-cf. [[TraductionPclConventions]]
+====== Why Lisp ======
 
 ====== Introduction : pourquoi Lisp ? ======
 
