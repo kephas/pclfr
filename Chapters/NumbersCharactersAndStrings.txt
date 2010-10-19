@@ -74,7 +74,7 @@ Les nombres sans marqueur d'exposant sont lus dans la représentation par défau
 
 Enfin, les nombres complexes sont écrits avec leur propre syntaxe, en l'occurrence #C ou #c suivi par une liste de deux nombres réels représentants les parties réelle et imaginaire du nombre complexe. Il y a en fait cinq genres de nombres complexes parce que les parties réelle et imaginaire doivent être toutes deux rationelles ou toutes deux du même type de nombre à virgule flottante.
 
-Mais vous pouvez les écrire comme vous le voulez -- si un complexe est écrit avec une partie rationelle  et l'autre à virgule flottante, le rationel est converti en un flottant de la représentation appropriée. De même, si les parties réelle et imaginaire sont toutes deux des flottants de représentations différentes, celui dans la plus petite représentation sera[[ ]]//augmenté//.
+Mais vous pouvez les écrire comme vous le voulez -- si un complexe est écrit avec une partie rationelle  et l'autre à virgule flottante, le rationel est converti en un flottant de la représentation appropriée. De même, si les parties réelle et imaginaire sont toutes deux des flottants de représentations différentes, celui dans la plus petite représentation sera //augmenté//.
 
 Néanmoins, aucun nombre complexe n'a de composante réelle rationelle et une partie imaginaire nulle -- dans la mesure où ces valeurs sont, mathématiquement parlant, des rationels, elles sont représentées par la valeur rationelle appropriée. Le même argument mathématique pourrait être employé pour les nombres complexes avec des composantes à virgule flottante, mais, pour ces types complexes, un nombre avec une partie imaginaire nulle est toujours un objet différent du nombre à virgule flottante représentant la composante réelle. Voici quelques exemples de nombres écrits avec la syntaxe des nombres complexes :
 
@@ -127,7 +127,7 @@ Notez qu'en général, la REPL imprimera à l'écran les chaînes de caractères
 CL-USER> "foo\"bar"
 "foo\"bar"
 
-FORMAT, en revanche, retournera le contenu véritable de la chaîne de caractères :
+FORMAT, en revanche, vous montera le contenu véritable de la chaîne de caractères :
 
 CL-USER> (format t "foo\"bar")
 foo"bar
