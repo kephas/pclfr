@@ -1,7 +1,6 @@
 Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.26
+Wiki-Format: zim 0.4
 Creation-Date: Unknown
-Modification-Date: lun, 01 jun 2009 13:44:43 +0200
 
 ====== Why Lisp ======
 
