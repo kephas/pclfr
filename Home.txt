@@ -1,7 +1,0 @@
-====== Home ======
-Created samedi 23/12/2006
-
-[[Conventions]]
-
-[[Chapters:WhyLisp|WhyLisp]]
-[[Chapters:NumbersCharactersAndStrings|NumbersCharactersAndStrings]]
