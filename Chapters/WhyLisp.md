@@ -1,4 +1,4 @@
-# Why Lisp
+# Pourquoi Lisp ?
 
 # Introduction : pourquoi Lisp ?
 
