@@ -1,5 +1,5 @@
 # Summary
 
 * [Pourquoi Lisp ?](Chapters/WhyLisp.md)
-* L
+* [L](Chapters/NumbersCharactersAndStrings.md)
 
