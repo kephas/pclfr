@@ -1,9 +1,6 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
+# Numbers, Characters And Strings
 
-====== Numbers, Characters And Strings ======
-
-===== Les nombres, caractères et chaînes de caractères =====
+## Les nombres, caractères et chaînes de caractères
 
 Bien que les fonctions, les variables, les macros et les 25 opérateurs spéciaux constituent les briques élémentaires du langage lui-même, les briques à la base de vos programmes seront les structures de données que vous utilisez. Comme le faisait remarquer Fred Brooks dans //Le mythe du mois-homme//, « La représentation //est// l'essence de la programmation. »
 
@@ -15,7 +12,7 @@ Mais pour l'instant, vous allez commencer par les types intégrés. Parce que Li
 
 Dans ce chapître, je couvrirai les types de données « scalaires » intégrés : les nombres, caractères et chaînes. Techniquement, les chaînes ne sont pas de véritables scalaires -- une chaîne est une séquence de caractères, et vous pouvez accéder aux caractères individuellement et manipuler des chaînes avec une fonction qui opère sur des séquences. Mais je parlerai ici des chaînes parce que la plupart des functions spécifiques aux chaînes les manipulent comme des valeurs individuelles et aussi à cause de l'étroite relation entre plusieurs des functions de chaînes et leur contrepartie pour les caractères.
 
-===== Les nombres =====
+## Les nombres
 
 Les maths, comme le dit Barbie, sont une chose difficile. Common Lisp ne peut pas rendre le côté maths plus facile, mais il a tendance à nettement moins se mettre en travers du chemin que d'autres langages de programmation. Ce n'est pas une suprise vu son héritage mathématique. Lisp a été initialement conçu par un mathématicien comme un outil pour étudier des fonctions mathématiques. Et un des principaux projets du projet MAC au MIT était le système d'algèbre symbolique Macsyma, écrit en Maclisp, un des prédecesseurs directs de Common Lisp. De plus, Lisp a été utilisé comme un langage d'apprentissage à des endroits comme le MIT, où même les professeurs d'informatique frémissent à l'idée de dire à leurs étudiants que 10/4 = 2, d'où le support dans Lisp des fractions exactes. Et à plusieurs reprises, Lisp a été sollicité pour se mesurer à FORTRAN dans l'arène des calculs numériques à haute performance.
 
@@ -25,7 +22,7 @@ D'un autre côté, pour de la programmation numérique à haute performance, vou
 
 Enfin, Common Lisp supporte les nombres complexes -- les nombres que l'on obtient en faisant des choses tel que prendre les racines carrées ou les logarithmes de nombres négatifs. Le standard Common Lisp va même jusqu'à spécifier les valeurs principales et les branches de coupure pour les fonctions irrationnelles et transcendentales dans le domaine complexe.
 
-===== Les nombres littéraux =====
+## Les nombres littéraux
 
 Vous pouvez écrire des nombrse littéraux de diverses façons ; vous en avez vu quelques exemples au Chapître 4. Néanmoins, il est important de garder en tête la division du travail entre le lecteur Lisp et l'évaluateur Lisp -- le lecteur est chargé de traduire le texte en objets Lisp et l'évaluateur s'occupe alors uniquement de ces objets. Pour un nombre donné d'un type donné, il peut y avoir de nombreuses représentations textuelles différentes, toutes étant traduites dans la même représentation objet par le lecteur Lisp. Par exemple, vous pouvez écrire l'entier 10 comme 10, 20/2, #xA ou d'un tas d'autres manières, mais le lecteur les traduira toutes en le même objet. Quand les nombres sont imprimés en retour -- disons, sur la REPL -- ils sont imprimés dans une syntaxe textuelle canonique qui peut très bien être différente de la syntaxe utilisée pour entrer le nombre. Par exemple :
 
@@ -88,7 +85,7 @@ Néanmoins, aucun nombre complexe n'a de composante réelle rationelle et une pa
 #c(1/2    0)    ==> 1/2
 #c(-6/3   0)    ==> -2
 
-===== Mathématiques de base =====
+## Mathématiques de base
 
 Les opérations arithmétiques de base -- addition, soustraction, multiplication et division -- sont supportées, pour toutes les différentes sortes de nombres Lisp, par les fonctions +, -, * et /. Appeler n'importe laquelle de ces fonctions avec plus de deux arguments est équivalent à appeler la même fonction sur les deux premiers arguments et puis de l'appeler à nouveau sur la valeur de résultat et le reste des arguments. Par exemple, (+ 1 2 3) est équivalent à (+ (+ 1 2) 3). Avec un seul argument, + et * renvoient la valeur, - renvoit son opposé et / son inverse.
 
@@ -116,7 +113,7 @@ Si tous les arguments sont du même type de nombre (rationel, à virgule flottan
 
 Parce que / ne tronque pas, Common Lisp fournit quatre façons de tronquer et d'arrondir pour convertir un nomre réel (rationel ou à virgule flottante) en un entier : FLOOR tronque vers l'infini négatif et renvoit le plus grand entier inférieur ou égal à l'argument. CEILING tronque vers l'infini positif et renvoit le plus petit entier supérieur ou égal à l'argument. TRUNCATE tronque vers zéro, ce qui le rend équivalent à FLOOR pour les arguments positifs et à CEILING pour les arguments négatifs. Et ROUND arrondi à l'entier le plus proche. Si l'argument est exactement à mi-chemin entre deux entiers, il arrondit à l'entier pair le plus proche.
 
-===== Chaînes de caractères =====
+## Chaînes de caractères
 
 Ainsi qu'il en a été fait mention plus haut, en Common Lisp, les chaînes de caractère sont en fait un type de données composite. En l'occurrence, il s'agit de tableaux de caractères unidimensionnels. Par conséquent, j'évoquerai la plupart des choses qu'on peut réaliser avec des chaînes de caractères dans le prochain chapitre, lorsque je discuterai des nombreuses fonctions permettant de manipuler les séquences, parmi lequelles les chaînes de caractères ne constituent qu'un exemple. Mais les chaînes de caractères ont aussi leur propre syntaxe litérale, ainsi qu'une bibliothèque de fonctions permettant d'effectuer des opérations qui leurs sont spécifiques. Je discuterai de ces aspects particuliers des chaînes de caractères dans le présent chapitre et réserverai les autres au chapitre 11.
 
@@ -133,7 +130,7 @@ CL-USER> (format t "foo\"bar")
 foo"bar
 NIL
 
-===== Comparaison de chaînes de caractères. =====
+## Comparaison de chaînes de caractères.
 
 Vous pouvez comparer entre elles des chaînes de caractères en utilisant un ensemble de fonctions qui suivent les mêmes conventions d'appelation que celles qui permettent de comparer les caractères eux-mêmes, à ceci près qu'ici STRING est utilisé comme préfixe plutôt que CHAR (voir le tableau 10-3).
 

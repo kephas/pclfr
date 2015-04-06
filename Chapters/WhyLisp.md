@@ -1,10 +1,6 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: Unknown
+# Why Lisp
 
-====== Why Lisp ======
-
-====== Introduction : pourquoi Lisp ? ======
+# Introduction : pourquoi Lisp ?
 
 Si vous pensez que le plus grand plaisir dans la programmation est de pouvoir accomplir un maximum de choses avec un code qui exprime simplement et clairement vos intentions, alors programmer en Common Lisp est sûrement la chose la plus amusante que vous puissiez faire avec un ordinateur. Vous serez plus efficace et plus rapide avec Common Lisp qu'avec n'importe quel autre langage.
 
@@ -24,7 +20,7 @@ Par exemple, pendant les vacances, ayant à peu près une semaine pour bricoler 
 
 Une expérience similaire amena à la bibliothèque dont je parlerai au chapitre 24. À mes débuts chez WebLogic, j'avais écrit une bibliothèque, en Java, pour disséquer des fichiers de classe Java. Cela marchait, mais le code était un peu désordonné et difficile à modifier ou à étendre. J'avais essayé de nombreuses fois, au fil des ans, de réécrire cette bibliothèque, pensant qu'avec mes compétences en Java qui ne cessaient de s'améliorer, je trouverais une manière d'y parvenir qui ne finirait pas en piles de code dupliqué. Je n'ai jamais trouvé la solution. Mais lorsque j'ai essayé de le faire en Common Lisp, en deux jours je me suis retrouvé non seulement avec un analyseur de fichiers de classe Java, mais avec une bibliothèque généraliste pour disséquer n'importe quel type de fichier binaire. Vous verrez comment cette bibliothèque fonctionne au chapitre 24 et vous l'utiliserez au chapitre 25 pour écrire un analyseur pour les balises ID3 intégrées dans les fichiers MP3.
 
-===== Pourquoi Lisp ? =====
+## Pourquoi Lisp ?
 
 Il est difficile, en seulement quelques pages d'introduction, d'expliquer pourquoi ses utilisateurs apprécient un langage et il est encore plus difficile de démontrer pourquoi vous devriez prendre le temps d'apprendre un certain langage. Seule notre histoire personnelle nous y conduit. J'apprécie peut-être Lisp à cause de bizarreries dans la façon dont mon cerveau est câblé. Cela pourrait bien être génétique, puisque mon père a ça aussi. Aussi, avant de plonger dans l'apprentissage de Lisp, il est raisonnable de vouloir savoir quel en serait le bénéfice.
 
@@ -48,7 +44,7 @@ Une autre conséquence du fait d'être un « langage de programmation programma
 
 Quelque soit le nouveau paradigme qui fasse son apparition ensuite, il est extrêmement probable que Common Lisp soit capable de l'absorber sans nécessiter aucun changement au noyau du langage. Par exemple, un Lispeur a récemment écrit une bibliothèque, AspectL, qui ajoute le support pour la programmation orientée aspect (POA) à Common Lisp. Si la POA s'avère être le prochain concept d'avenir, Common Lisp sera capable de le supporter sans aucun changement au langage de base et sans aucun préprocesseur additionnel ou compilateur additionnel.
 
-===== Comment tout a commencé =====
+## Comment tout a commencé
 
 Common Lisp est le déscendant moderne du langage Lisp conçu initialement par John !McCarthy en 1956. Lisp fut conçu aux alentours de 1956 pour le « traitement de données symboliques » et fut nommé d'après l'une des choses pour lesquelles il était plutôt bon : LISt Processing (traitement de liste). On a parcouru du chemin depuis lors : Common Lisp arbore toute la panoplie des types de données modernes que l'on peut souhaiter, un système de condition qui, comme vous le verrez au chapitre 19, fournit un niveau de flexibilité impossible à trouver dans les systèmes d'exception de langages tels que Java, Python et C++, de puissantes fonctionnalités pour la programmation orientée objet et de nombreuses fonctionnalités du langage qui n'existent simplement pas dans d'autres langages de programmation. Comment est-ce possible ? Qu'est-ce qui pourrait bien provoquer l'évolution d'un langage aussi bien équipé ?
 
@@ -64,7 +60,7 @@ Dès 1986, les premières implémentations Common Lisp étaient disponibles, et 
 
 Donc, d'un côté, Lisp est un des langages « classiques » de l'informatique, basé sur des idées qui ont résisté à l'épreuve du temps. De l'autre, c'est un langage d'usage général, résolument moderne, dont la conception réflète une approche profondément pragamatique pour la résolution de problèmes réels, de façon aussi efficace et robuste que possible. Le seul inconvénient de l'héritage « classique » de Lisp est qu'un tas de gens se baladent avec des idées sur Lisp basées sur un genre particulier de Lisp auquel ils ont été exposé à un moment donné du demi-siècle qui s'est écoulé depuis que !McCarthy a inventé Lisp. Si quelqu'un vous dit que Lisp est seulement interprété, qu'il est lent ou que vous devez utiliser la récursion pour n'importe quoi, demandez-lui de quel dialecte de Lisp il parle et si les gens portaient des pattes d'eph quand il l'a appris.
 
-===== A qui s'adresse ce livre =====
+## A qui s'adresse ce livre
 
 Ce livre est pour vous  si Common Lisp vous rend curieux, que vous soyez convaincu de vouloir l'utiliser ou que vous vouliez juste savoir de quoi il s'agit.
 
